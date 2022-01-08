@@ -17,7 +17,6 @@ jobs:
       run: npm install --ignore-scripts
     - name: Test
       run: npm run test
-      - uses: actions/checkout@master
     - name: Generte coverage report
       uses: codecov/codecov-action@v2
       with:
