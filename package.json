@@ -1,5 +1,5 @@
 {
-  "name": "graphy",
+  "name": "@daniele.fedeli/graphy",
   "version": "0.0.1",
   "description": "Small graph library for node.js",
   "main": "lib/index.js",
