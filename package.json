@@ -1,20 +1,45 @@
 {
   "name": "graphy",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Small graph library for node.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanieleFedeli/Graphy.git"
+  },
   "scripts": {
     "dev": "nodemon src/index.ts",
     "dev:example": "nodemon src/example/index.ts",
-    "test": "tap --ts"
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "eslint",
+    "test": "tap --ts test/**/*.test.ts",
+    "prepare": "npm run tsc",
+    "prepublishOnly": "npm run lint && npm run test",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Graph",
+    "Graphy",
+    "BFS",
+    "DFS"
+  ],
+  "author": "Daniele Fedeli",
+  "files": [
+    "lib/**/*"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^17.0.5",
     "@types/tap": "^15.0.5",
-    "eslint": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-sonarjs": "^0.11.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "tap": "^15.1.5",
