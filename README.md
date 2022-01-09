@@ -6,7 +6,7 @@ Small library for node.js used to represent a Graph in memory.
 
 ## Install
 ```
-npm i graphy
+npm i @daniele.fedeli/graphy
 ```
 
 ## Usage
