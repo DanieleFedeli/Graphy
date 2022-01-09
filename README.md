@@ -13,7 +13,7 @@ npm i @daniele.fedeli/graphy
 Require\Import `graphy` and start using its instances/functions
 ```ts
 import { promisify } from "util";
-import { Graph, GraphNode, BFS } from "graphy";
+import { Graph, GraphNode, BFS } from "@daniele.fedeli/graphy";
 
 const sleep = promisify(setTimeout);
 const graph = new Graph();
