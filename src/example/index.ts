@@ -18,7 +18,7 @@ for (let i = 0; i < nodes.length; i++) {
   });
 }
 
-BFS(nodes[0], async (err, node, controller) => {
+BFS(nodes[0], async (err, node, weight, controller) => {
   if (err) {
     console.error(err);
     return;
