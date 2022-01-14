@@ -1,26 +1,41 @@
 import { GraphNode } from "./node";
 
 export class Graph {
-  private nodes = new Map<string, GraphNode>();
+	private nodes = new Map<string, GraphNode>();
 
-  insertNode(node: GraphNode) {
-    this.nodes.set(node.id, node);
-    return this;
-  }
+	insertNode(node: GraphNode) {
+		this.nodes.set(node.id, node);
+		return this;
+	}
 
-  getNodes() {
-    return new Map(this.nodes);
-  }
+	getNodes() {
+		return new Map(this.nodes);
+	}
 
-  addRelationship(nodeA: GraphNode, nodeB: GraphNode) {
-    nodeA.addNeighbour(nodeB);
-    nodeB.addNeighbour(nodeA);
-    return this;
-  }
+	addRelationship(
+		nodeA: GraphNode,
+		nodeB: GraphNode,
+		opts?: { mutual?: boolean; weight?: number }
+	) {
+		const mutual = opts?.mutual || false;
+		const weight = opts?.weight || 1;
 
-  removeRelationship(nodeA: GraphNode, nodeB: GraphNode) {
-    nodeA.removeNeighbour(nodeB.id);
-    nodeB.removeNeighbour(nodeA.id);
-    return this;
-  }
+		nodeA.addNeighbour(nodeB, weight);
+		if (mutual) {
+			nodeB.addNeighbour(nodeA, weight);
+		}
+		return this;
+	}
+
+	removeRelationship(
+		nodeA: GraphNode,
+		nodeB: GraphNode,
+		opts?: { mutual?: boolean }
+	) {
+		const mutual = opts?.mutual || false;
+
+		nodeA.removeNeighbour(nodeB.id);
+		if (mutual) nodeB.removeNeighbour(nodeA.id);
+		return this;
+	}
 }
