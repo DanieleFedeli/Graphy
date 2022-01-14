@@ -6,14 +6,14 @@ Small library for node.js used to represent a Graph in memory.
 
 ## Install
 ```
-npm i graphy
+npm i @daniele.fedeli/graphy
 ```
 
 ## Usage
 Require\Import `graphy` and start using its instances/functions
 ```ts
 import { promisify } from "util";
-import { Graph, GraphNode, BFS } from "graphy";
+import { Graph, GraphNode, BFS } from "@daniele.fedeli/graphy";
 
 const sleep = promisify(setTimeout);
 const graph = new Graph();
